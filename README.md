@@ -15,5 +15,6 @@ simple exercise about node, express, routing, MySQL, request
     <li>localhost:5000/api/movies/60000</li>
   </ul>
 </li>
+<li>Method Post added for insert users (localhost:5000/api/users)</li>
 <li>Enjoy !!!</li>
 </ul>
