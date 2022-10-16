@@ -10,9 +10,9 @@ simple exercise about node, express, routing, MySQL, request
 <li>Test on your browser (for port 5000 listening): 
   <ul>
     <li>localhost:5000</li>
-    <li>localhost:5000/api/movies</li>
-    <li>localhost:5000/api/movies/5</li>
-    <li>localhost:5000/api/movies/60000</li>
+    <li>localhost:5000/api/users</li>
+    <li>localhost:5000/api/users/5</li>
+    <li>localhost:5000/api/users/60000</li>
   </ul>
 </li>
 <li>Method Post added for insert users (localhost:5000/api/users)</li>
