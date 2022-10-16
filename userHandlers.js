@@ -24,4 +24,15 @@ const getUser = async (req, res) => {
     }
 }
 
-module.exports = { getUsers, getUser };
+const createUser = async (req, res) => {
+    const { username, country } = req.body;
+    const [user] = await database.query('INSERT INTO users (username, country) VALUES (?, ?)', [username, country])
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send("Error inserting data into database");
+        });
+     
+    return res.location(`/api/users/${user.insertId}`).sendStatus(201);
+}
+
+module.exports = { getUsers, getUser, createUser };
