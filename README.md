@@ -15,6 +15,7 @@ simple exercise about node, express, routing, MySQL, request
     <li>localhost:5000/api/users/60000</li>
   </ul>
 </li>
-<li>Method Post added for insert users (localhost:5000/api/users)</li>
+<li>Add Post method for insert users (localhost:5000/api/users) using postman body request</li>
+<li>Add Put method for update an usuer (localhost:5000/api/users/:id) using postman body request</i>
 <li>Enjoy !!!</li>
 </ul>
