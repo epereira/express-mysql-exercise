@@ -1,7 +1,23 @@
 const database = require("./database");
 
 const getUsers = async (req, res) => {
-  const [users] = await database.query("SELECT * FROM users");
+  const sql = "SELECT * FROM users";
+  const where = [];
+  if(req.query.language !== undefined) {
+    where.push({column: "language", value: req.query.language, operator: "="});
+  }
+  if(req.query.city !== undefined) {
+    where.push({column: "city", value: req.query.city, operator: "="});
+  }
+  
+  const sqlWhere = where.reduce((acc, curr, index) => {
+    if(index === 0) {
+      return acc + ` WHERE ${curr.column} ${curr.operator} '${curr.value}'`;
+    }
+    return acc + ` AND ${curr.column} ${curr.operator} '${curr.value}'`;
+  }, sql);
+
+  const [users] = await database.query(sqlWhere);
   if (users.length > 0) {
     return res.send(users);
   } else {
@@ -10,6 +26,7 @@ const getUsers = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
+  console.log('test');
   const [user] = await database
     .query("SELECT * FROM users WHERE id = ?", [req.params.id])
     .catch((err) => {
