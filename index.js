@@ -14,6 +14,8 @@ app.post('/api/users', usersDB.createUser);
 
 app.put('/api/users/:id', usersDB.updateUser);
 
+app.delete('/api/users/:id', usersDB.deleteUser);
+
 app.get('/', (req, res) => {
   return res.send({ express: 'Hello, welcome to the users API' });
 });
